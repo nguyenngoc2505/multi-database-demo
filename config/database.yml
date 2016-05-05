@@ -1,0 +1,39 @@
+defaults: &defaults
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password:
+  collation: utf8_unicode_ci
+  socket: /var/run/mysqld/mysqld.sock
+
+db1:
+  development:
+    database: db1_development
+    <<: *defaults
+  test:
+    database: db1_test
+    <<: *defaults
+
+  production:
+    database: db1_production
+    <<: *defaults
+
+db2:
+  development:
+    database: db2_development
+    <<: *defaults
+
+  test:
+    database: db2_test
+    host: localhost
+    <<: *defaults
+
+  production:
+    database: db2_production
+    host: localhost
+    <<: *defaults
+
+development:
+  database: db1_development
+  <<: *defaults
